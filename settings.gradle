@@ -1,0 +1,9 @@
+rootProject.name = 'Java13_SocialMediaApp'
+include 'AuthService'
+include 'UserService'
+include 'ConfigServer'
+include 'ConfigServerGit'
+include 'mail-service'
+include 'ElasticService'
+include 'PostService'
+

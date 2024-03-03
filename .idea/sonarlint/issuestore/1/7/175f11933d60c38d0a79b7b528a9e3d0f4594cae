@@ -1,0 +1,17 @@
+
+r
+java:S3655="PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(¡šçúþÿÿÿÿ8ð×âÜÜ1
+m
+java:S3655K"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(òŽðˆ8ð×âÜÜ1
+l
+java:S3655B"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(¡û‹i8ð×âÜÜ1
+m
+java:S3655G"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(…ÁËî8ð×âÜÜ1
+O
+java:S1128"2Remove this unused import 'com.burcu.entity.Auth'.(­Í¿‹8ì—ò‡Ý1
+h
+java:S1128"KRemove this unused import 'org.springframework.cache.annotation.Cacheable'.(ÝºØ“8ì—ò‡Ý1
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëÝüÿÿÿÿ8ì—ò‡Ý1
+O
+java:S1128"2Remove this unused import 'java.util.OptionalInt'.(š”üÏ8ì—ò‡Ý1

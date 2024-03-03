@@ -1,0 +1,35 @@
+server:
+  port: 7070
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: root
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/Java13AuthDB
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+jwt:
+  secretKey: ${java13secretKey}
+  issuer: ${java13issuer}
+  audience: ${java13audience}
+
+rabbitmq:
+  auth-exchange: auth-exchange
+  queue-register: register-queue
+  binding-key-register: register-binding-key
+  queue-mail: register-mail-queue
+  binding-key-mail: register-mail-binding-key
+  queue-elastic: elastic-queue
+  binding-key-elastic: elastic-binding-key

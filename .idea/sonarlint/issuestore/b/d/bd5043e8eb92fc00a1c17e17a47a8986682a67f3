@@ -1,0 +1,8 @@
+
+t	java:S116"XRename this field "EXCHANGE_AUTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å½ä­8Ÿë¹®Ý1
+u	java:S116"YRename this field "QUEUE_REGISTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÍÇø8Ÿë¹®Ý1
+{	java:S116"_Rename this field "BINDING_KEY_REGISTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚€·˜8Ÿë¹®Ý1
+v	java:S116"URename this field "QUEUE_MAIL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º˜€Çüÿÿÿÿ8 ë¹®Ý1
+|	java:S116"[Rename this field "BINDING_KEY_MAIL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™ëŠ¿üÿÿÿÿ8Û”»®Ý1
+t	java:S116"XRename this field "QUEUE_ELASTIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é§â¶8®£æ«Þ1
+z	java:S116"^Rename this field "BINDING_KEY_ELASTIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü÷‡ï8´¼æ«Þ1

@@ -1,0 +1,11 @@
+
+U
+java:S1128"8Remove this unused import 'com.burcu.entity.BaseEntity'.(ÊÔöæ8±¢‚ïØ1
+\
+java:S1128":Remove this unused import 'com.burcu.utility.enums.ERole'.(ŒÖç¡ıÿÿÿÿ8±¢‚ïØ1
+^
+java:S1128"<Remove this unused import 'com.burcu.utility.enums.EStatus'.(¾‡ÿÿÿÿÿ8±¢‚ïØ1
+V
+java:S1128"9Remove this unused import 'jakarta.persistence.EnumType'.(…÷Íà8±¢‚ïØ1
+]
+java:S1128";Remove this unused import 'jakarta.persistence.Enumerated'.(àèòùÿÿÿÿ8±¢‚ïØ1

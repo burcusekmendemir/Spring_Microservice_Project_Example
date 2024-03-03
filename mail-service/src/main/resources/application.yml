@@ -1,0 +1,22 @@
+server:
+  port: 7075
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: root
+  mail:
+    username: ${mail-service-username}
+    password: ${mail-service-password}
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+rabbitmq:
+  queue-mail: register-mail-queue

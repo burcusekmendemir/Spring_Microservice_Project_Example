@@ -1,0 +1,5 @@
+
+y	java:S116"XRename this field "EXCHANGE_USER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ЁуЉль€€€€8Л№•™а1
+u	java:S116"YRename this field "QUEUE_REGISTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ьЌ«ш8ыв£™а1
+Г	java:S116"gRename this field "BINDING_KEY_ELASTIC_REGISTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Зћ‘Ј8∆У§™а1
+В	java:S116"aRename this field "QUEUE_ELASTIC_REGISTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(б¶щЅщ€€€€8ыв£™а1
