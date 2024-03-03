@@ -1,56 +1,56 @@
-# KURULUMLAR VE PROJE TEKNOLOJİLERİ
+# KURULUMLAR VE PROJE TEKNOLOJÄ°LERÄ°
 
-## Docker üzerinde PostgreSQL kurulumu;
-       Uygulamamızda Auth servis üzerinde kullanıcı oturum açma işlemlerini ve kayıtarını ilişkisel bir
-    veritabanında tutuyoruz. Veritabanı olarak PostgreSQL kullanıyoruz. PostgreSQL'i docker üzerinde
-    çalıştırmak için aşağıdaki kodu kullanılır;
+## Docker Ã¼zerinde PostgreSQL kurulumu;
+       UygulamamÄ±zda AuthService Ã¼zerinde kullanÄ±cÄ± oturum aÃ§ma iÅŸlemlerini ve kayÄ±tarÄ±nÄ± iliÅŸkisel bir
+    veritabanÄ±nda tutuyoruz. VeritabanÄ± olarak PostgreSQL kullanÄ±yoruz. PostgreSQL'i docker Ã¼zerinde
+    Ã§alÄ±ÅŸtÄ±rmak iÃ§in aÅŸaÄŸÄ±daki kodu kullanÄ±lÄ±r;
 
 ```bash
    docker run  --name postgreSQL -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres
 ```
 
-## Docker üzerinde MongoDB kurulumu;
-    MongoDB kurulumu yaparken yetkili kullanıcı bilgilerinin girilmesi gereklidir. Bu bilgileri imajların 
-    Ortam değişkenlerine atayarak yapabiliyoruz. Docker bu tarz bilgileri ekleyebilmenmiz için bize ek 
+## Docker Ã¼zerinde MongoDB kurulumu;
+    MongoDB kurulumu yaparken yetkili kullanÄ±cÄ± bilgilerinin girilmesi gereklidir. Bu bilgileri imajlarÄ±n 
+    Ortam deÄŸiÅŸkenlerine atayarak yapabiliyoruz. Docker bu tarz bilgileri ekleyebilmenmiz iÃ§in bize ek 
     parametreler sunar.
-    EK BİLGİ:
-    docker üzerinde bir image eklemek istiyorsak -> docker pull [IMAGE_NAME]
-    docker üzerinde bir image'ı çalıştırmak istiyorsak -> docker run [IMAGE_NAME]
-    Burada önemli bir nokta vardır. docker run eğer ortamda ilgili image yok ise önce image'ı indirir sonra
-    çalıştırır, yani docker run yapmak için önce image'ı pull etmemize gerek yoktur.
+    EK BÄ°LGÄ°:
+    docker Ã¼zerinde bir image eklemek istiyorsak -> docker pull [IMAGE_NAME]
+    docker Ã¼zerinde bir image'Ä± Ã§alÄ±ÅŸtÄ±rmak istiyorsak -> docker run [IMAGE_NAME]
+    Burada Ã¶nemli bir nokta vardÄ±r. docker run eÄŸer ortamda ilgili image yok ise Ã¶nce image'Ä± indirir sonra
+    Ã§alÄ±ÅŸtÄ±rÄ±r, yani docker run yapmak iÃ§in Ã¶nce image'Ä± pull etmemize gerek yoktur.
     -e ->enviroment docker
-    -p ->port docker desktop default olarak 27017 portunu kullanır. İlki fiziksel pc portumuz ikinci yazılan docker desktop'un portudur.
-    MongoDB'yi docker üzerinde çalıştırmak için aşağıdaki kod kullanılır;
+    -p ->port docker desktop default olarak 27017 portunu kullanÄ±r. Ä°lki fiziksel pc portumuz ikinci yazÄ±lan docker desktop'un portudur.
+    MongoDB'yi docker Ã¼zerinde Ã§alÄ±ÅŸtÄ±rmak iÃ§in aÅŸaÄŸÄ±daki kod kullanÄ±lÄ±r;
 
 ```bash
     docker run --name mongodbjava13 -d -e "MONGO_INITDB_ROOT_USERNAME=mongo" -e "MONGO_INITDB_ROOT_PASSWORD=root" -p 27020:27017 mongo:jammy 
 ```
 
-    MongoDB'yi yönetebilmek için bir araca ihtiaycımız var. Bu aracın adı MongoDb Compas tool'dur. Bu aracı indirip
-    kurmamız gerekiyor. (Adres: https://www.mongodb.com/try/download/compass)
+    MongoDB'yi yÃ¶netebilmek iÃ§in bir araca ihtiaycÄ±mÄ±z var. Bu aracÄ±n adÄ± MongoDb Compas tool'dur. Bu aracÄ± indirip
+    kurmamÄ±z gerekiyor. (Adres: https://www.mongodb.com/try/download/compass)
 
-    Compass kurulumu bittikten sonra, açılan yeni pencerede "New Connection +" butonuna tıklıyoruz. Ekranın ortasında
-    "> Advanced connection options" butonuna tıklayarak detaylı bağlantı ayarlarını yapıyoruz.
-     1- açılan ekranda "Host" kısmına veritabanımızın ip adresini ve port numarasını giriyoruz Yerel bilgisayarımız
-    için kullanılacak ise ya da docker desktop üzerinde ise (localhost:27017) şeklinde yazıyoruz.
-     2- Authentication kısmına geçiş yaparak kurulum sırasında girdiğimiz kullanıcı adı ve şifreyi yazıyoruz. Docker
-    run komutu ile çalıştırdıysak -e (environment) ile giriş yaptığımız bilgileri yazıyoruz. (admin-root)
+    Compass kurulumu bittikten sonra, aÃ§Ä±lan yeni pencerede "New Connection +" butonuna tÄ±klÄ±yoruz. EkranÄ±n ortasÄ±nda
+    "> Advanced connection options" butonuna tÄ±klayarak detaylÄ± baÄŸlantÄ± ayarlarÄ±nÄ± yapÄ±yoruz.
+     1- aÃ§Ä±lan ekranda "Host" kÄ±smÄ±na veritabanÄ±mÄ±zÄ±n ip adresini ve port numarasÄ±nÄ± giriyoruz Yerel bilgisayarÄ±mÄ±z
+    iÃ§in kullanÄ±lacak ise ya da docker desktop Ã¼zerinde ise (localhost:27017) ÅŸeklinde yazÄ±yoruz.
+     2- Authentication kÄ±smÄ±na geÃ§iÅŸ yaparak kurulum sÄ±rasÄ±nda girdiÄŸimiz kullanÄ±cÄ± adÄ± ve ÅŸifreyi yazÄ±yoruz. Docker
+    run komutu ile Ã§alÄ±ÅŸtÄ±rdÄ±ysak -e (environment) ile giriÅŸ yaptÄ±ÄŸÄ±mÄ±z bilgileri yazÄ±yoruz. (admin-root)
 
-    NOT: MongoDB'yi ilk kurulumları ve kullanımları için admin kullanıcı ile işlemleri yapabiliriz. Ancak, 
-    veritabanlarını yönetmek ve işlemek için kullanmayalım. Her Db için ayrı kullanıcı ve yetkiler oluştururuz
-    root kullanıcısı ve şifreleri sadece ilk kurulum için kullanılmalı ve tekrar kullanılmamalıdır. Sadece gerekli
-    olduğu durumlarda müdahale için kullanırız.
-    Gerekli dokümantasyonlara: (http://mongodb.com/docs/manual/) ulaşırız.
+    NOT: MongoDB'yi ilk kurulumlarÄ± ve kullanÄ±mlarÄ± iÃ§in admin kullanÄ±cÄ± ile iÅŸlemleri yapabiliriz. Ancak, 
+    veritabanlarÄ±nÄ± yÃ¶netmek ve iÅŸlemek iÃ§in kullanmayalÄ±m. Her Db iÃ§in ayrÄ± kullanÄ±cÄ± ve yetkiler oluÅŸtururuz
+    root kullanÄ±cÄ±sÄ± ve ÅŸifreleri sadece ilk kurulum iÃ§in kullanÄ±lmalÄ± ve tekrar kullanÄ±lmamalÄ±dÄ±r. Sadece gerekli
+    olduÄŸu durumlarda mÃ¼dahale iÃ§in kullanÄ±rÄ±z.
+    Gerekli dokÃ¼mantasyonlara: (http://mongodb.com/docs/manual/) ulaÅŸÄ±rÄ±z.
 
-    Yetkilendirme İşlemleri:
-    1- MONGOSH'a tıklayarak açıyoruz.
-    2- Açılan kısımda test> şeklinde bir yer görürüz, öncelikle test DB'den kendi DB'mize geçmek için 
-    use [DB_adı] yazıp enter'a basarız.
-    Örn: 
+    Yetkilendirme Ä°ÅŸlemleri:
+    1- MONGOSH'a tÄ±klayarak aÃ§Ä±yoruz.
+    2- AÃ§Ä±lan kÄ±sÄ±mda test> ÅŸeklinde bir yer gÃ¶rÃ¼rÃ¼z, Ã¶ncelikle test DB'den kendi DB'mize geÃ§mek iÃ§in 
+    use [DB_adÄ±] yazÄ±p enter'a basarÄ±z.
+    Ã–rn: 
     use UserProfile
     switched to db UserProfile
-     UserProfile > şeklinde bir görüntü elde ederiz.
-    3- Burada kullanıcı oluşturmak için gerekli komutları giriyoruz.
+     UserProfile > ÅŸeklinde bir gÃ¶rÃ¼ntÃ¼ elde ederiz.
+    3- Burada kullanÄ±cÄ± oluÅŸturmak iÃ§in gerekli komutlarÄ± giriyoruz.
     db.createUser({
         user: "bilgeUser",
         pwd: "bilgeUser*",
@@ -61,20 +61,20 @@
      db.createUser({ user: "bilgeUser", pwd: "bilgeUser*", roles: ["readWrite","dbAdmin"]})
 ```
 
-## Docker üzerinde Redis Single Node Oluşturmak
+## Docker Ã¼zerinde Redis Single Node OluÅŸturmak
 
-     Redis, tipik olarak bir veritabanı veya önbellek olarak kullanılan bir key-value deposudur 
-     ve genellikle uygulama kodu tarafından programatik olarak erişilir. Redis, genellikle 6379 
-     numaralı port üzerinden iletişim kurar. Bu port, Redis'in standart portudur ve Redis 
-     sunucusuna bağlanmak için kullanılır.
+     Redis, tipik olarak bir veritabanÄ± veya Ã¶nbellek olarak kullanÄ±lan bir key-value deposudur 
+     ve genellikle uygulama kodu tarafÄ±ndan programatik olarak eriÅŸilir. Redis, genellikle 6379 
+     numaralÄ± port Ã¼zerinden iletiÅŸim kurar. Bu port, Redis'in standart portudur ve Redis 
+     sunucusuna baÄŸlanmak iÃ§in kullanÄ±lÄ±r.
 ```bash
     docker run --name java13-redis -p 6379:6379 -d redis
 ```
 
-     Aşağıdaki komut, Docker'ı kullanan bir ortamda Redis Insight adlı bir Redis GUI uygulamasını 
-     çalıştıracaktır. Bu, Redis verilerini görsel olarak keşfetmek, yönetmek ve sorgulamak için 
-     kullanılan bir araçtır. Komut çalıştırıldığında, Redis Insight uygulaması belirtilen port 
-     üzerinde çalışacak ve tarayıcı aracılığıyla erişilebilir olmasını sağlayacaktır.
+     AÅŸaÄŸÄ±daki komut, Docker'Ä± kullanan bir ortamda Redis Insight adlÄ± bir Redis GUI uygulamasÄ±nÄ± 
+     Ã§alÄ±ÅŸtÄ±racaktÄ±r. Bu, Redis verilerini gÃ¶rsel olarak keÅŸfetmek, yÃ¶netmek ve sorgulamak iÃ§in 
+     kullanÄ±lan bir araÃ§tÄ±r. Komut Ã§alÄ±ÅŸtÄ±rÄ±ldÄ±ÄŸÄ±nda, Redis Insight uygulamasÄ± belirtilen port 
+     Ã¼zerinde Ã§alÄ±ÅŸacak ve tarayÄ±cÄ± aracÄ±lÄ±ÄŸÄ±yla eriÅŸilebilir olmasÄ±nÄ± saÄŸlayacaktÄ±r.
      
 ```bash
     docker run --name redis-gui -d -p 8001:8001 redislabs/redisinsight:1.14.0
@@ -82,19 +82,19 @@
 
 ##  Redis Spring Boot Entegrasyonu;
 
-    1- İlgili bağımlılıklar eklenir.
+    1- Ä°lgili baÄŸÄ±mlÄ±lÄ±klar eklenir.
         dependencies.gradle;
               versions --> springBoot            : '3.2.2'
               libs --> springBootStarterDataRedis: "org.springframework.boot:spring-boot-starter-data-redis:${versions.springBoot}"
         build.gradle -->  dependencies {implementation libs.springBootStarterDataRedis}
 
 
-    2- Redis Config oluşturulur.
-       Redis repository olarak kullanılabileceği gibi, Cache olarak da kullanılabilir, Bu nedenle Spring'te Cache'i
-       ve Redis Repository aktif etmek için gerekli anotasyonları config'e eklememiz gerekir.
-       Rediste cache oluşturmak için, istediğimiz methodun üzerinde @Cachable anotasyonunu eklememiz gerekir.
-       Böylelikle methoda girilen değerler için bir Key oluşturuluyor ve return değeri redis üzerinde
-       cachelenmiş oluyor.
+    2- Redis Config oluÅŸturulur.
+       Redis repository olarak kullanÄ±labileceÄŸi gibi, Cache olarak da kullanÄ±labilir, Bu nedenle Spring'te Cache'i
+       ve Redis Repository aktif etmek iÃ§in gerekli anotasyonlarÄ± config'e eklememiz gerekir.
+       Rediste cache oluÅŸturmak iÃ§in, istediÄŸimiz methodun Ã¼zerinde @Cachable anotasyonunu eklememiz gerekir.
+       BÃ¶ylelikle methoda girilen deÄŸerler iÃ§in bir Key oluÅŸturuluyor ve return deÄŸeri redis Ã¼zerinde
+       cachelenmiÅŸ oluyor.
 
 ```java
     @Configuration
@@ -110,8 +110,8 @@
 
 ##  Elasticsearch Kurulumu;
 
-      Elasticsearch sürümleri ile Spring sürümleri arasında bir uyum olması gerekli. 
-      Çünkü eski sürümleri kullanabilmek için belli spring boot sürümlerini kullanmanız gereklidir.
+      Elasticsearch sÃ¼rÃ¼mleri ile Spring sÃ¼rÃ¼mleri arasÄ±nda bir uyum olmasÄ± gerekli. 
+      Ã‡Ã¼nkÃ¼ eski sÃ¼rÃ¼mleri kullanabilmek iÃ§in belli spring boot sÃ¼rÃ¼mlerini kullanmanÄ±z gereklidir.
 
 ```bash
     docker network create java13-network
@@ -127,14 +127,14 @@
 
 ##  Elasticsearch Spring Boot Entegrasyonu;
 
-      1- İlgili bağımlılıklar eklenir.
+      1- Ä°lgili baÄŸÄ±mlÄ±lÄ±klar eklenir.
         dependencies.gradle;
               versions --> springBoot                         : '3.2.2'
               libs     --> springBootStarterDataElasticsearch : "org.springframework.boot:spring-boot-starter-data-elasticsearch:${versions.springBoot}"
         build.gradle -->  dependencies {implementation libs.springBootStarterDataElasticsearch}
 
-      2- ElasticService modülü açıldı. Bu yapılandırma, uygulamanın belirtilen port üzerinde çalışacağını 
-         ve Elasticsearch'e belirtilen URI, kullanıcı adı ve şifre ile erişeceğini belirtir.
+      2- ElasticService modÃ¼lÃ¼ aÃ§Ä±ldÄ±. Bu yapÄ±landÄ±rma, uygulamanÄ±n belirtilen port Ã¼zerinde Ã§alÄ±ÅŸacaÄŸÄ±nÄ± 
+         ve Elasticsearch'e belirtilen URI, kullanÄ±cÄ± adÄ± ve ÅŸifre ile eriÅŸeceÄŸini belirtir.
 
 ```yml
 server:
@@ -148,23 +148,23 @@ spring:
 ```
 
       3- Entity  -- @Document (indexName= "[INDEX_NAME]]") -- anotasyonu ile, index ismi belirlenir.
-      4- Repository ElasticsearchRepository'den kalıtım alması sağlanır.
+      4- Repository ElasticsearchRepository'den kalÄ±tÄ±m almasÄ± saÄŸlanÄ±r.
 
-##  Microserviceler Arası İletişim: Open Feign
+##  Microserviceler ArasÄ± Ä°letiÅŸim: Open Feign
 
-         Spring Boot ile microservisler arasında bir iletişim kurmak için Open Feign kullanılır. 
+         Spring Boot ile microservisler arasÄ±nda bir iletiÅŸim kurmak iÃ§in Open Feign kullanÄ±lÄ±r. 
 
-         1- İlgili bağımlılıklar eklenir.
+         1- Ä°lgili baÄŸÄ±mlÄ±lÄ±klar eklenir.
 
          dependencies.gradle;
               versions --> springCloud                            : '4.1.0'
               libs     --> springCloudOpenFeign                   : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springOpenFeign}"
          build.gradle -->  dependencies {implementation libs.springCloudOpenFeign}
 
-         2-  @EnableFeignClients anotasyonu, Spring Boot uygulamalarında Feign istemcilerinin kullanılmasının 
-             etkinleştirilmesi için main class'a eklenir. Bu anotasyon, Feign istemcilerini tanımlamak için 
-             kullanılan arayüzlerin otomatik olarak tespit edilip yapılandırılmasını sağlar. Böylece, Feign 
-             istemcilerini kullanarak diğer mikro servislere kolayca erişim sağlanabilir.
+         2-  @EnableFeignClients anotasyonu, Spring Boot uygulamalarÄ±nda Feign istemcilerinin kullanÄ±lmasÄ±nÄ±n 
+             etkinleÅŸtirilmesi iÃ§in main class'a eklenir. Bu anotasyon, Feign istemcilerini tanÄ±mlamak iÃ§in 
+             kullanÄ±lan arayÃ¼zlerin otomatik olarak tespit edilip yapÄ±landÄ±rÄ±lmasÄ±nÄ± saÄŸlar. BÃ¶ylece, Feign 
+             istemcilerini kullanarak diÄŸer mikro servislere kolayca eriÅŸim saÄŸlanabilir.
       
 ```java
 @SpringBootApplication
@@ -176,9 +176,9 @@ public class UserServiceApplication {
     }
 }
 ```
-       3- Feign Client kullanarak microservisler arasındaki iletişimi sağlamak için bir "manager" veya "service" sınıfı 
-         oluşturulur. Bu sınıf, Feign Client'i kullanarak diğer servislere HTTP isteklerinde bulunan metotları 
-         içerir. Bu yaklaşım, servisler arası iletişimi kolaylaştırır ve kodun daha düzenli olmasını sağlar.
+       3- Feign Client kullanarak microservisler arasÄ±ndaki iletiÅŸimi saÄŸlamak iÃ§in bir "manager" veya "service" sÄ±nÄ±fÄ± 
+         oluÅŸturulur. Bu sÄ±nÄ±f, Feign Client'i kullanarak diÄŸer servislere HTTP isteklerinde bulunan metotlarÄ± 
+         iÃ§erir. Bu yaklaÅŸÄ±m, servisler arasÄ± iletiÅŸimi kolaylaÅŸtÄ±rÄ±r ve kodun daha dÃ¼zenli olmasÄ±nÄ± saÄŸlar.
 
 ```java
 @FeignClient(url = "http://localhost:7071/dev/v1/user-profile", name = "elastic-userprofile")
@@ -192,20 +192,20 @@ public interface UserManager {
 
 ##  RabbitMQ Kurulumu;
 
-    RabbitMQ bir mesaj kuyruğu yazılımıdır ve dağıtık sistemler arasında iletişimi sağlamak için kullanılır.
-    RabbitMQ iki port ile çalışır. 5672, 15672 bu portlardan;
-     1- 5672 olan port Rest isteklreini işlemek için kullanılır, bu nedenle Spring Boot bu porta bağlanır.
-     2- 15672 olan port arayüz webUI kısmıdır. Yönetim ekranı burasıdır.
+    RabbitMQ bir mesaj kuyruÄŸu yazÄ±lÄ±mÄ±dÄ±r ve daÄŸÄ±tÄ±k sistemler arasÄ±nda iletiÅŸimi saÄŸlamak iÃ§in kullanÄ±lÄ±r.
+    RabbitMQ iki port ile Ã§alÄ±ÅŸÄ±r. 5672, 15672 bu portlardan;
+     1- 5672 olan port Rest isteklreini iÅŸlemek iÃ§in kullanÄ±lÄ±r, bu nedenle Spring Boot bu porta baÄŸlanÄ±r.
+     2- 15672 olan port arayÃ¼z webUI kÄ±smÄ±dÄ±r. YÃ¶netim ekranÄ± burasÄ±dÄ±r.
 
 ```bash
  docker run -d --name java13-rabbit -p 5672:5672 -p 15672:15672  -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=root rabbitmq:3-management
 ```
 
-     1- İlgili bağımlılıklar eklenir.
+     1- Ä°lgili baÄŸÄ±mlÄ±lÄ±klar eklenir.
            dependencies.gradle -->  implementation 'org.springframework.boot:spring-boot-starter-amqp:3.2.2'
            build.gradle --> dependencies {implementation libs.springBootStarterAmqp}
 
-     2- Yapılandırma dosyası oluşturulur. Bu dosya, RabbitMQ'i kullanmak için gerekli ayarlamaları yapar.
+     2- YapÄ±landÄ±rma dosyasÄ± oluÅŸturulur. Bu dosya, RabbitMQ'i kullanmak iÃ§in gerekli ayarlamalarÄ± yapar.
 
 ```yml
 spring:
@@ -215,36 +215,36 @@ spring:
     username: admin
     password: root
 ```
-     3- Config dosyası oluşturulur. Bu dosya RabbitMQ ile ilgili ayarlamaları yapar. Queue, exchange, binding key 
-        tanımlanır. 
-     4- RabbitMQ paketi microservicelerde açılır. Consumer, model, producer ile sendmessage ve listener
-        methodları yazılır. Modellerin microservislerde birebir aynı olması gereklidir.
-     5- RabbitMQ deserilizable işleminde getirilen yeni güvenlik config nedeniyle şu ENV'nin eklenmesi
+     3- Config dosyasÄ± oluÅŸturulur. Bu dosya RabbitMQ ile ilgili ayarlamalarÄ± yapar. Queue, exchange, binding key 
+        tanÄ±mlanÄ±r. 
+     4- RabbitMQ paketi microservicelerde aÃ§Ä±lÄ±r. Consumer, model, producer ile sendmessage ve listener
+        methodlarÄ± yazÄ±lÄ±r. Modellerin microservislerde birebir aynÄ± olmasÄ± gereklidir.
+     5- RabbitMQ deserilizable iÅŸleminde getirilen yeni gÃ¼venlik config nedeniyle ÅŸu ENV'nin eklenmesi
         gereklidir; "SPRING_AMQP_DESERIALIZATION_TRUST_ALL=true"
 
 
-##  Config Server Kullanımı;
+##  Config Server KullanÄ±mÄ±;
     
-    Config server, mikroservice mimarisi içinde kullanılan ve uygulamaların yapılandırma bilgilerini merkezi 
-    bir yerden almasını sağlayan bir bileşendir. Bu, farklı uygulamaların aynı yapılandırma ayarlarını paylaşmasını 
-    ve yapılandırma değişikliklerinin tüm uygulamalara otomatik olarak yansıtılmasını sağlar. 
+    Config server, mikroservice mimarisi iÃ§inde kullanÄ±lan ve uygulamalarÄ±n yapÄ±landÄ±rma bilgilerini merkezi 
+    bir yerden almasÄ±nÄ± saÄŸlayan bir bileÅŸendir. Bu, farklÄ± uygulamalarÄ±n aynÄ± yapÄ±landÄ±rma ayarlarÄ±nÄ± paylaÅŸmasÄ±nÄ± 
+    ve yapÄ±landÄ±rma deÄŸiÅŸikliklerinin tÃ¼m uygulamalara otomatik olarak yansÄ±tÄ±lmasÄ±nÄ± saÄŸlar. 
 
-     1- İlgili bağımlılıklar eklenir. 
+     1- Ä°lgili baÄŸÄ±mlÄ±lÄ±klar eklenir. 
           dependencies.gradle;
             springCloudConfig:              "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
             springCloudConfigServer:        "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
             springCloudConfigClient:        "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}",
         
-     2- Config Server modülü oluşturulur, aşağıdaki bağımlılıklar eklenir.
+     2- Config Server modÃ¼lÃ¼ oluÅŸturulur, aÅŸaÄŸÄ±daki baÄŸÄ±mlÄ±lÄ±klar eklenir.
            build.gradle;    dependencies {implementation libs.springCloudConfig
                                           implementation libs.springCloudConfigServer}  eklenir.
 
-        Microserviceler için de aşağıdaki bağımlılık eklenir. 
+        Microserviceler iÃ§in de aÅŸaÄŸÄ±daki baÄŸÄ±mlÄ±lÄ±k eklenir. 
            build.gradle;    dependencies {implementation libs.springCloudConfigClient}
 
-     3- Main class'a eklenen @EnaleConfigServer anotasyonu ile Spring Boot tabanlı bir Config Server uygulamasını başlatmak 
-        için gereken temel yapıyı sağlanır. Bu uygulama, yapılandırma dosyalarını dinamik olarak yönetmek için kullanılabilir 
-        ve diğer Spring Boot uygulamalarına bu yapılandırma dosyalarını sağlayabilir.
+     3- Main class'a eklenen @EnaleConfigServer anotasyonu ile Spring Boot tabanlÄ± bir Config Server uygulamasÄ±nÄ± baÅŸlatmak 
+        iÃ§in gereken temel yapÄ±yÄ± saÄŸlanÄ±r. Bu uygulama, yapÄ±landÄ±rma dosyalarÄ±nÄ± dinamik olarak yÃ¶netmek iÃ§in kullanÄ±labilir 
+        ve diÄŸer Spring Boot uygulamalarÄ±na bu yapÄ±landÄ±rma dosyalarÄ±nÄ± saÄŸlayabilir.
 
 ```java
 @SpringBootApplication
@@ -257,10 +257,10 @@ public class ConfigServerApplication {
 ```
      
 
-      4- Config Server resources file içerisine "config-repo" adlı bir klasör açılır. Bu klasör içerisine yönetilecek microservicelerin
-         application.yml dosyaları eklenir ve yapılandırma dosyalarındaki gerekli değişiklikler ve düzenlemeler artık
-         buradan gerçekleşir.
-         Config Server mikroservisinin de yapılandırma dosyası aşağıdaki şekilde oluşturulur;
+      4- Config Server resources file iÃ§erisine "config-repo" adlÄ± bir klasÃ¶r aÃ§Ä±lÄ±r. Bu klasÃ¶r iÃ§erisine yÃ¶netilecek microservicelerin
+         application.yml dosyalarÄ± eklenir ve yapÄ±landÄ±rma dosyalarÄ±ndaki gerekli deÄŸiÅŸiklikler ve dÃ¼zenlemeler artÄ±k
+         buradan gerÃ§ekleÅŸir.
+         Config Server mikroservisinin de yapÄ±landÄ±rma dosyasÄ± aÅŸaÄŸÄ±daki ÅŸekilde oluÅŸturulur;
 
 ```yml
 server:
@@ -275,7 +275,7 @@ spring:
         native:
           search-locations: classpath:/config-repo
 ```
-      5- Microserviceler içerisinde yer alan yapılandırma dosyaları da aşağıdaki şekilde oluşturulur;
+      5- Microserviceler iÃ§erisinde yer alan yapÄ±landÄ±rma dosyalarÄ± da aÅŸaÄŸÄ±daki ÅŸekilde oluÅŸturulur;
 
 ```yml
 spring:
